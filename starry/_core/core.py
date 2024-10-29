@@ -314,7 +314,7 @@ class OpsYlm(object):
                     inc,
                     obl,
                     theta,
-                ),
+                ).reshape([1, theta.shape[0]]),
                 tt.transpose(tt.tile(y, [theta.shape[0], 1])),
             )
         else:
