@@ -213,7 +213,7 @@ setup(
         "aesara-theano-fallback>=0.0.4",
         "matplotlib>=3.2.2",
         "ipython",
-        "exoplanet>=0.4.5",
+        "exoplanet[pymc3]>=0.4.5",
         "bokeh",
         "packaging",
     ],
