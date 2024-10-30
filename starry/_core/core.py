@@ -309,13 +309,13 @@ class OpsYlm(object):
         if self.nw is None:
             Ry = ifelse(
                 tt.eq(projection, STARRY_ORTHOGRAPHIC_PROJECTION),
-                self.left_project(
+                tt.unbroadcast(self.left_project(
                     tt.transpose(tt.tile(y, [theta.shape[0], 1])),
                     inc,
                     obl,
                     theta,
-                ).reshape([1, theta.shape[0]]),
-                tt.transpose(tt.tile(y, [theta.shape[0], 1])),
+                ), 0),
+                tt.unbroadcast(tt.transpose(tt.tile(y, [theta.shape[0], 1])), 0),
             )
         else:
             Ry = ifelse(
